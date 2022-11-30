@@ -19,7 +19,7 @@ const Card = (props) => {
         <Link to={`/${name.replace('/','-')}`} state={props} onClick={() => dispatch(setSelectedShowId(id))}>
             <div className="show-card">
                 <div className="show-image">
-                    <img src={image?.medium ? image.medium : '/show-search//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
+                    <img src={image?.medium ? image.medium : '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
                 </div>
                 <div className="brief-data">
                     <div className="name">{name}</div>

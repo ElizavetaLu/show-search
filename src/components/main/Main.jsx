@@ -33,7 +33,7 @@ const Main = () => {
     return (
         <div className="main-wrapper">
             <div className="main-container">
-                <div className="backgroundImg" style={{ backgroundImage: 'url("/show-search//images/modern-futuristic-sci-fi-background.jpg")' }}>
+                <div className="backgroundImg" style={{ backgroundImage: 'url("/show-search/build//images/modern-futuristic-sci-fi-background.jpg")' }}>
                     <div className="background"></div>
 
 
@@ -67,7 +67,7 @@ const Main = () => {
 
                             <button className="search-btn"
                                 onClick={() => dispatch({ type: GET_SHOW })}>
-                                <img src="/show-search//images/icons8-search-64.png" alt="" />
+                                <img src="/show-search/build//images/icons8-search-64.png" alt="" />
                             </button>
                         </div>
                     </div>
