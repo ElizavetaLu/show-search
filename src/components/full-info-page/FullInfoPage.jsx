@@ -35,10 +35,10 @@ const FullInfoPage = () => {
                 <div className="blur">
                     <div className="background"></div>
 
-                    <Link to={'/show-search'}>
+                    <Link to={'/show-search/build'}>
                         <div className="navigation">
                             <div className="icon">
-                                <img src="/show-search//images/arrow.png" alt="" />
+                                <img src="/show-search/build//images/arrow.png" alt="" />
                             </div>
                             <div className="nav-text"> Get back to search</div>
                         </div>
@@ -46,7 +46,7 @@ const FullInfoPage = () => {
 
                     <div className="main-show-info">
                         <div className="poster-img">
-                            <img src={image.original ? image.original : '/show-search//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
+                            <img src={image.original ? image.original : '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
                         </div>
                         <div className="full-info">
                             <div className="genres">Genres: {genres?.join(', ')}</div>

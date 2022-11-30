@@ -11,7 +11,7 @@ const CastCard = (props) => {
     return (
         <div className="cast-card">
             <div className="cast-photo">
-                <img src={person?.image?.medium ? person.image.medium : '/show-search//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
+                <img src={person?.image?.medium ? person.image.medium : '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
             </div>
 
             <div className="cast-info">
