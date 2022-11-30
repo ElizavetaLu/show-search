@@ -77,7 +77,8 @@ const Main = () => {
                 <div className="main_content">
                     <div className="all-card-wrapper">
 
-                        <div className="section-title">Results:</div>
+                        {show.length > 0 && <div className="section-title">Results:</div>}
+                        
                         <div className="all-show-cards">
                             {show &&
                                 show.map(show => (<Card key={show.id} {...show} />))}

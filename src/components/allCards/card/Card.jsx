@@ -16,7 +16,7 @@ const Card = (props) => {
     const dispatch = useDispatch()
 
     return (
-        <Link to={`/${name.replace('/','-')}`} state={props} onClick={() => dispatch(setSelectedShowId(id))}>
+        <Link to={`/show-search/build/${name.replace('/','-')}`} state={props} onClick={() => dispatch(setSelectedShowId(id))}>
             <div className="show-card">
                 <div className="show-image">
                     <img src={image?.medium ? image.medium : '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
