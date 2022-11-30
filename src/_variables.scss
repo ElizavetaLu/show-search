@@ -1,0 +1,32 @@
+$main_text_color: rgb(248, 248, 248);
+$main-light_text_color: rgba(238, 238, 238, 0.891);
+$title_color: rgb(206, 206, 206);
+$h1_width: 850px;
+$panel_color: #181f3a;
+
+@mixin flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid $diagrame_color;
+    display: flex;
+    justify-content: center;
+}
+
+@mixin card_panel {
+    color: $main_text_color;
+    background-color: $panel_color;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+@mixin section_title {
+    color: $title_color;
+    font-size: 30px;
+}

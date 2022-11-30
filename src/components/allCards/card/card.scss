@@ -1,0 +1,44 @@
+@import "../../../variables";
+
+a {
+    text-decoration: none;
+
+    .show-card {
+        @include card_panel;
+
+        .show-image {
+            img {
+                width: 210px;
+                height: 295px;
+            }
+        }
+
+        .brief-data {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 5px;
+            height: 100px;
+            width: 210px;
+
+
+            .name {
+                text-align: left;
+                font-weight: 600;
+                height: 40px;
+            }
+
+            .ended {
+                font-size: 13px;
+                color: $main-light_text_color;
+                text-align: left;
+            }
+
+            .rating {
+                height: 18.5px;
+                text-align: right;
+            }
+        }
+    }
+}

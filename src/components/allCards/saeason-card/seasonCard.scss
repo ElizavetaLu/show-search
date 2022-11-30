@@ -1,0 +1,33 @@
+@import "../../../variables";
+
+.season-card {
+    @include card_panel;
+
+    .season-image {
+        height: 230px;
+        background-color: rgb(188, 206, 220);
+        img {
+            height: 230px;
+        }
+    }
+
+    .season-info {
+        height: 65px;
+        box-sizing: border-box;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .number {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .amount {
+            color: $main-light_text_color;
+        }
+    }
+}
