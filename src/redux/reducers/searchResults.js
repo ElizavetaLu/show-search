@@ -7,8 +7,8 @@ import {
 
 const initialState = {
     searchValue: '',
-    options: null,
-    show: null
+    options: [],
+    show: []
 }
 
 const searchResults = (state = initialState, { type, payload }) => {

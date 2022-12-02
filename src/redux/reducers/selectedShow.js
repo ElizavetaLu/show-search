@@ -9,9 +9,9 @@ import {
 
 const initialState = {
     showId: null,
-    seasons: null,
-    episodes: null,
-    cast: null
+    seasons: [],
+    episodes: [],
+    cast: []
 }
 
 const selectedShow = (state = initialState, { type, payload }) => {
