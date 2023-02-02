@@ -1,13 +1,6 @@
-import React from "react";
 import "./castCard.scss";
 
-const CastCard = (props) => {
-    const {
-        person,
-        character
-    } = props
-
-
+const CastCard = ({ person, character }) => {
     return (
         <div className="cast-card">
             <div className="cast-photo">

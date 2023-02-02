@@ -5,25 +5,27 @@
 
     .cast-photo {
         height: 230px;
+        width: 163.73px;
         background-color: rgb(188, 206, 220);
+
         img {
             height: 230px;
+            width: 163.73px;
         }
     }
 
     .cast-info {
-        height: 75px;
+        height: 90px;
         box-sizing: border-box;
-        padding: 6px;
+        padding: 8px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
 
-
         .name {
             font-size: 18px;
-            font-weight: 600px;
+            text-align: center;
         }
 
         .starred-as {
@@ -32,7 +34,5 @@
             @include flex_center;
             color: $main-light_text_color
         }
-
-
     }
 }

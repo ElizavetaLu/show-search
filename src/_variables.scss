@@ -22,7 +22,7 @@ $panel_color: #181f3a;
 @mixin card_panel {
     color: $main_text_color;
     background-color: $panel_color;
-    margin: 10px;
+    margin: 15px;
     box-sizing: border-box;
 }
 

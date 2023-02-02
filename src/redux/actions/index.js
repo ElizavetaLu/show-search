@@ -6,8 +6,7 @@ import {
     SET_SELECTED_SHOW_SEASONS,
     SET_SELECTED_SHOW_EPISODES,
     SET_SELECTED_SHOW_CAST
-}
-    from "./types"
+} from "./types";
 
 
 export const setSearchValue = value => ({

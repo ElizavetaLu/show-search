@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import searchResults from "./searchResults"
-import selectedShow from "./selectedShow"
+import searchResults from "./searchResults";
+import selectedShow from "./selectedShow";
 
 
 const reducers = combineReducers({
