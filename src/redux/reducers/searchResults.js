@@ -2,14 +2,14 @@ import {
     SET_SEARCH_VALUE,
     SET_OPTIONS,
     SET_SELECTED_SHOW
-} from "../actions/types"
+} from "../actions/types";
 
 
 const initialState = {
     searchValue: '',
     options: [],
     show: []
-}
+};
 
 const searchResults = (state = initialState, { type, payload }) => {
     switch (type) {
