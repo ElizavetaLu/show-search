@@ -1,17 +1,14 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import CastCard from "../allCards/cast-card/CastCard";
 import EpisodeCard from "../allCards/episode-card/EpisodeCard";
 import SeasonCard from "../allCards/saeason-card/SeasonCard";
+import parse from "html-react-parser"
 import "./fullInfoPage.scss"
-
 
 const FullInfoPage = () => {
 
-    const parse = require('html-react-parser');
-
-    const { state } = useLocation()
+    const { state } = useLocation();
     const {
         genres,
         image,
@@ -23,11 +20,9 @@ const FullInfoPage = () => {
         summary,
     } = state
 
-    const cast = useSelector(state => state.selectedShow.cast)
-    const episodes = useSelector(state => state.selectedShow.episodes)
-    const seasons = useSelector(state => state.selectedShow.seasons)
+    const { cast, episodes, seasons } = useSelector(state => state.selectedShow);
 
-    if (!state) return
+    if (!state) return;
 
     return (
         <div className="fullInfoPage-wrapper">
@@ -35,29 +30,20 @@ const FullInfoPage = () => {
                 <div className="blur">
                     <div className="background"></div>
 
-                    <Link to={'/show-search/build'}>
-                        <div className="navigation">
-                            <div className="icon">
-                                <img src="/show-search/build//images/arrow.png" alt="" />
-                            </div>
-                            <div className="nav-text"> Get back to search</div>
-                        </div>
-                    </Link>
-
                     <div className="main-show-info">
                         <div className="poster-img">
-                            <img src={image.original ? image.original : '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
+                            <img src={image?.original || '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
                         </div>
                         <div className="full-info">
-                            <div className="genres">Genres: {genres?.join(', ')}</div>
-                            <div className="showName">
+                            <div className="row genres">Genres: {genres?.join(', ')}</div>
+                            <div className="row showName">
                                 <div className="text">{name}</div>
                                 <div className="rate">{rating?.average}</div>
                             </div>
-                            <div className="premiered">Premiered: {premiered}</div>
-                            <div className="status">Status: {status}</div>
-                            <div className="language">Language: {language}</div>
-                            <div className="description">{parse(summary)}</div>
+                            <div className="row premiered">Premiered: {premiered}</div>
+                            <div className="row status">Status: {status}</div>
+                            <div className="row language">Language: {language}</div>
+                            <div className="row description">Description: {parse(summary)}</div>
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,7 @@
 import React from "react";
 import "./seasonCard.scss";
 
-const SeasonCard = (props) => {
-    const {
-        number,
-        image,
-        episodeOrder
-    } = props
-
+const SeasonCard = ({ number, image, episodeOrder }) => {
 
     return (
         <div className="season-card">
