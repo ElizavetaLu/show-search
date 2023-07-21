@@ -4,30 +4,43 @@
     @include card_panel;
 
     .season-image {
-        height: 230px;
-        background-color: rgb(188, 206, 220);
-
-        img {
-            height: 230px;
-        }
+        height: 230px; 
+        width: 163.73px;
     }
 
-    .season-info {
-        height: 65px;
-        box-sizing: border-box;
-        padding: 6px;
+    .season-info {  
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        align-items: center; 
+        gap: 8px;
 
         .number {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 500;
         }
 
         .amount {
+            font-size: 15px;
             color: $main-light_text_color;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .season-card {  
+        .season-image {
+            width: 110px;
+            height: 150px;
+        }
+
+        .season-info { 
+            .number {
+                font-size: 14px; 
+            } 
+            .amount {
+                font-size: 10px;
+            }
         }
     }
 }

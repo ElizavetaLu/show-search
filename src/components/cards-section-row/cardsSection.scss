@@ -1,0 +1,23 @@
+@import "../../variables";
+
+.cards-section {
+    .section-title {
+        @include section_title;
+        margin-bottom: 10px;
+    }
+
+    .section-cards {
+        display: flex;
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .cards-section{
+        .section-title{
+            font-size: 23px;
+            margin-bottom: 5px;
+        }
+    }
+}

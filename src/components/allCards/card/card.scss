@@ -1,42 +1,79 @@
 @import "../../../variables";
 
-a {
+.card-link {
     text-decoration: none;
 
-    .show-card {
+    .card {
         @include card_panel;
+        position: relative;
+
+        .rate {
+            position: absolute;
+            right: 40%;
+            top: -10px;
+            width: 40px;
+            height: 26px;
+            background-color: #ffae00;
+            border-radius: 20px;
+            padding-bottom: 5px;
+            @include flex_center;
+        }
 
         .show-image {
-            img {
-                width: 210px;
-                height: 295px;
-            }
+            width: 210px;
+            height: 295px;
         }
 
         .brief-data {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-sizing: border-box;
             padding: 10px;
-            height: 100px;
             width: 210px;
 
             .name {
-                text-align: left;
-                font-weight: 600;
-                height: 40px;
+                font-weight: 500;
+                width: 190px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                margin-bottom: 8px;
             }
 
             .ended {
                 font-size: 13px;
                 color: $main-light_text_color;
-                text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .card-link {  
+        .card {  
+            .rate { 
+                width: 35px;
+                height: 21px;
+                padding-bottom: 2px;
+                font-size: 13px;
             }
 
-            .rating {
-                height: 18.5px;
-                text-align: right;
+            .show-image {
+                width: 150px;
+                height: 225px;
+            }
+            .brief-data { 
+                padding: 6px;
+                width: 150px;
+    
+                .name { 
+                    width: 130px;  
+                    font-size: 14px;
+                }
+    
+                .ended {
+                    font-size: 11px; 
+                }
             }
         }
     }

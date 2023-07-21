@@ -1,69 +1,77 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchValue } from "../../redux/actions/index"
 import { GET_SHOW } from "../../redux/actions/types"
 import Card from "../allCards/card/Card";
-import "./main.scss"
+import "./main.scss" 
 
 
 const Main = () => {
 
     const dispatch = useDispatch();
-    const { options, show, searchValue } = useSelector(state => state.searchResults);
+    const { options, show } = useSelector(state => state.searchResults);
 
+
+    const [searchTerm, setSearchTerm] = useState('')
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+
+            dispatch(setSearchValue(searchTerm))
+        }, 300)
+
+        return () => clearTimeout(timeoutId)
+    }, [searchTerm])
+
+
+    const onSearch = e => {
+        e.preventDefault();
+        dispatch({ type: GET_SHOW })
+    }
 
     return (
-        <div className="main-wrapper">
-            <div className="main-container">
-                <div className="backgroundImg" style={{ backgroundImage: 'url("/show-search/build//images/modern-futuristic-sci-fi-background.jpg")' }}>
-                    <div className="background"></div>
+        <main className="main">
+            <section className="search-section">
+                <div className="bottom-gradient"></div>
 
-                    <div className="content-text">
-                        <div className="h1">Search information about any show which are you interested in</div>
-                        <div className="text">+60 000 shows</div>
+                <div className="content">
+                    <div className="title">Search information about any show which are you interested in</div>
+                    <div className="text">+60 000 shows</div>
 
-                        <form className="search-space" onSubmit={() => dispatch({ type: GET_SHOW })}>
-                            <div className="search-container">
-                                <input
-                                    className="search"
-                                    placeholder="Search for..."
-                                    value={searchValue}
-                                    onChange={e => dispatch(setSearchValue(e.target.value))}
-                                    list="options"
-                                />
-                                <datalist id="options" className="datalist">
+                    <form className="search-form" onSubmit={onSearch}>
+                        <input
+                            className="search"
+                            placeholder="Search for..."
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                            list="options"
+                        />
+                        <datalist id="options" className="options">
+                            {
+                                options &&
+                                options.map((option, i) => (
+                                    <option
+                                        className="option"
+                                        value={option.value}
+                                        key={i}
+                                    >{option.value}</option>
+                                ))
+                            }
+                        </datalist>
 
-                                    {options &&
-                                        options.map((option, i) => (
-                                            <option
-                                                className="option"
-                                                value={option.value}
-                                                key={i}
-                                            >{option.value}</option>
-                                        ))}
-
-                                </datalist>
-                            </div>
-
-                            <button className="search-btn" type="submit">
-                                <img src="/show-search/build//images/icons8-search-64.png" alt="" />
-                            </button>
-                        </form>
-                    </div>
+                        <button className="search-btn" type="submit">
+                            <img className="search-icon" src="/images/icons8-search-64.png" alt="" />
+                        </button>
+                    </form>
                 </div>
+            </section>
 
-
-                <div className="main_content">
-                    <div className="all-card-wrapper">
-
-                        {searchValue && <div className="section-title">"{searchValue}" Search Results:</div>}
-
-                        <div className="all-show-cards">
-                            {show && show.map(show => <Card key={show.id} {...show} />)}
-                        </div>
-                    </div>
+            <section className="main-content">
+                <div className="show-list">
+                    {show && show.map(show => <Card key={show.id} {...show} />)}
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 
