@@ -16,20 +16,29 @@ const Card = (props) => {
 
     return (
         <Link
-            to={`/show-search/build/${name.replace('/', '-')}`}
+            to={`/${name.replace('/', '-')}`}
             state={props}
             onClick={() => {
                 dispatch(setSelectedShowId(id))
                 dispatch(setSearchValue(''))
-                }}>
-            <div className="show-card">
-                <div className="show-image">
-                    <img src={image?.medium ? image.medium : '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
-                </div>
+            }}
+            className="card-link"
+        >
+            <div className="card">
+                {
+                    rating.average &&
+                    <div className="rate">{rating.average}</div>
+                }
+
+                <img
+                    className="show-image"
+                    src={image?.medium ? image.medium : '/images/no-image.png'}
+                    alt=""
+                />
+
                 <div className="brief-data">
                     <div className="name">{name}</div>
                     <div className="ended">Ended: {status}</div>
-                    <div className="rating">{rating.average && rating.average + '/10'}</div>
                 </div>
             </div>
         </Link>

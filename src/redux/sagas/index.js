@@ -13,8 +13,11 @@ import { inputValue, showId } from "./selectors"
 
 
 export function* loadOptions() {
+
     const inputValueFromState = yield select(inputValue)
+
     const { data } = yield call(requestGetData, `search/shows?q=${inputValueFromState}`)
+
     const options = data.map(item => {
         return {
             value: item.show.name,
@@ -29,6 +32,7 @@ export function* loadOptions() {
 export function* loadShow() {
 
     const inputValueFromState = yield select(inputValue)
+
     const { data } = yield call(requestGetData, `search/shows?q=${inputValueFromState}`)
 
     const show = data.map(item => {
@@ -36,6 +40,7 @@ export function* loadShow() {
             ...item.show
         }
     })
+
     yield put(setSelectedShow(show))
 }
 

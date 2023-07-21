@@ -1,0 +1,43 @@
+@import "../../../variables";
+
+.caracter-card {
+    @include card_panel;
+
+    .caracter-photo {
+        width: 163.73px;
+        height: 230px;
+    }
+
+    .caracter {
+        padding: 10px;
+        width: 163.73px;
+        font-size: 13px;
+        color: $details_title;
+
+        .name {
+            margin-top: 5px;
+            font-size: 15px;
+            font-weight: 500;
+            color: $title;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .caracter-card {
+        .caracter-photo {
+            width: 110px;
+            height: 150px;
+        }
+
+        .caracter {
+            padding: 6px;
+            width: 110px;
+            font-size: 10px;
+
+            .name {
+                font-size: 11px;
+            }
+        }
+    }
+}

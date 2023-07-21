@@ -3,31 +3,44 @@
 .episode-card {
     @include card_panel;
 
-    .episode-photo {
+    .episode-image {
         width: 291px;
         height: 162.95px;
-        @include flex_center;
-        background-color: rgb(188, 206, 220);
-
-        img {
-            width: 291px;
-            height: 162.95px;
-        }
     }
 
     .episode-info {
-        max-width: 275px;
-        height: 90px;
-        box-sizing: border-box;
-        padding: 8px 0px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        margin-left: 8px;
+        width: 291px; 
+        padding: 10px; 
 
+        .season {
+            text-align: center;
+            margin-bottom: 6px;
+        }
         .name {
             text-align: center;
+            font-weight: 500; 
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .episode-card { 
+        .episode-image {
+            width: 215px;
+            height: 114px;
+        }
+    
+        .episode-info {
+            width: 215px;
+            padding: 6px; 
+    
+            .season {
+                font-size: 14px;
+                margin-bottom: 3px;
+            }
+            .name {
+                font-size: 11px; 
+            }
         }
     }
 }

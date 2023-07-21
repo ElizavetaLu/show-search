@@ -1,8 +1,7 @@
 export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE'
-
 export const SET_OPTIONS = 'SET_OPTIONS'
-
 export const SET_SELECTED_SHOW = 'SET_SELECTED_SHOW'
+
 
 export const SET_SHOW_EXTRA_DATA = 'SET_SHOW_EXTRA_DATA'
 

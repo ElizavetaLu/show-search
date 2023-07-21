@@ -1,10 +1,15 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import CastCard from "../allCards/cast-card/CastCard";
+import CaracterCard from "../allCards/caracter-card/CaracterCard";
 import EpisodeCard from "../allCards/episode-card/EpisodeCard";
 import SeasonCard from "../allCards/saeason-card/SeasonCard";
+import Person from "../allCards/person-row/Person";
 import parse from "html-react-parser"
 import "./fullInfoPage.scss"
+import Dummy from "../dummy-text/Dummy";
+import CardsSection from "../cards-section-row/CardsSection";
+
+
 
 const FullInfoPage = () => {
 
@@ -15,6 +20,7 @@ const FullInfoPage = () => {
         language,
         name,
         premiered,
+        ended,
         rating,
         status,
         summary,
@@ -26,73 +32,114 @@ const FullInfoPage = () => {
 
     return (
         <div className="fullInfoPage-wrapper">
-            <div className="img-bg" style={{ backgroundImage: `url(${image ? image?.original : ''})` }}>
+            <div className="img-bg" style={{ backgroundImage: `url(${image && image?.original})` }}>
                 <div className="blur">
                     <div className="background"></div>
 
-                    <div className="main-show-info">
-                        <div className="poster-img">
-                            <img src={image?.original || '/show-search/build//images/5f36cb18a4a17795a0b1e1a419e07749.png'} alt="" />
-                        </div>
-                        <div className="full-info">
-                            <div className="row genres">Genres: {genres?.join(', ')}</div>
-                            <div className="row showName">
-                                <div className="text">{name}</div>
-                                <div className="rate">{rating?.average}</div>
+                    <div className="show-data">
+                        <div className="poster-container">
+                            <div className="poster" style={{ backgroundImage: `url(${image?.original || '/images/no-image.png'})` }}></div>
+
+                            <div className="buttons">
+                                <button className="poster-btn">Add to Favorites</button>
+                                <button className="poster-btn">Watch Online</button>
+                                <button className="poster-btn">Official Site</button>
                             </div>
-                            <div className="row premiered">Premiered: {premiered}</div>
-                            <div className="row status">Status: {status}</div>
-                            <div className="row language">Language: {language}</div>
-                            <div className="row description">Description: {parse(summary)}</div>
+                        </div>
+
+                        <div className="data">
+                            <div className="row">
+                                <div className="title">
+                                    <p className="show-name">{name}</p>
+                                    <div className="year">{premiered.slice(0, 4)}</div>
+                                </div>
+                                <div className="status">Status: <span className="text">{status}</span></div>
+                            </div>
+
+                            {
+                                genres.length > 0 &&
+                                <div className="genres">{genres.join(' | ')}</div>
+                            }
+
+                            <div className="information">
+                                <div className="information-block">
+                                    <h3 className="block-title">Details:</h3>
+
+                                    <div className="details">
+                                        <div className="detail-row">
+                                            <span className="detail-title">Rating: </span>
+                                            <p className="detail-text">{rating.average || '-'}</p>
+                                        </div>
+                                        <div className="detail-row">
+                                            <span className="detail-title">Language: </span>
+                                            <p className="detail-text">{language}</p>
+                                        </div>
+                                        <div className="detail-row">
+                                            <span className="detail-title">Premiered: </span>
+                                            <p className="detail-text">{premiered}</p>
+                                        </div>
+                                        <div className="detail-row">
+                                            <span className="detail-title">Ended: </span>
+                                            <p className="detail-text">{ended ? ended : 'Is running'}</p>
+                                        </div>
+                                    </div>
+                                    <div className="description">
+                                        <span className="description-title">Storyline: </span>
+                                        <div className="description-text">{parse(summary)}{parse(summary)}</div>
+                                    </div>
+                                </div>
+
+                                <div className="information-block">
+                                    <h3 className="block-title">Cast:</h3>
+                                    <div className="cast-list">
+                                        {
+                                            cast?.length > 0
+                                                ? cast.map(({ person }) => <Person
+                                                    key={person.id}
+                                                    name={person.name}
+                                                    image={person?.image}
+                                                />)
+                                                : <Dummy text="We don't have information about cast yet..." />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="more-info">
+                <CardsSection title="Characters">
+                    {
+                        cast?.length > 0
+                            ? cast.map(({ character }) => (
+                                <CaracterCard key={character.id} {...character} />
+                            ))
+                            : <Dummy text="Sorry, we don't have information about characters" />
+                    }
+                </CardsSection>
 
-                <div className="cards-row">
-                    <div className="section-title">Cast:</div>
-                    <div className="section-cards">
-                        {
-                            cast && cast.lenght < 0
-                                ? <span className="dumb"> ...We don't have information about cast yet.</span>
-                                : cast.map(item => (
-                                    <CastCard key={item.person.id} {...item} />
-                                ))
-                        }
+                <CardsSection title="Episodes">
+                    {
+                        episodes?.length > 0
 
-                    </div>
-                </div>
+                            ? episodes.map(item => (
+                                <EpisodeCard key={item.id} {...item} />
+                            ))
+                            : <Dummy text="We don't have information about episodes yet." />
+                    }
+                </CardsSection>
 
-                <div className="cards-row episodes">
-                    <div className="section-title">Episodes:</div>
-                    <div className="section-cards">
-                        {
-                            episodes && episodes.lenght < 0
-                                ? <span className="dumb"> ...We don't have information about episodes yet.</span>
-                                : episodes.map(item => (
-                                    <EpisodeCard key={item.id} {...item} />
-                                ))
-                        }
-                    </div>
-                </div>
-
-                <div className="cards-row">
-                    <div className="section-title">Seasons:</div>
-                    <div className="section-cards">
-                        {
-                            seasons && seasons.lenght < 0
-                                ? <span className="dumb"> ...We don't have information about seasons yet.</span>
-                                : seasons.map(item => (
-                                    <SeasonCard key={item.id} {...item} />
-                                ))
-                        }
-
-                    </div>
-                </div>
-
-
+                <CardsSection title="Seasons">
+                    {
+                        seasons?.length > 0
+                            ? seasons.map(item => (
+                                <SeasonCard key={item.id} {...item} />
+                            ))
+                            : <Dummy text="We don't have information about seasons yet." />
+                    }
+                </CardsSection>
             </div>
         </div>
     )
