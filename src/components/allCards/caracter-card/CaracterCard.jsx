@@ -8,7 +8,7 @@ const CaracterCard = ({ name, image }) => {
                 className="caracter-photo"
                 src={image?.medium
                     ? image.medium
-                    : '/images/no-image.png'}
+                    : '/show-search/build//images/no-image.png'}
                 alt=""
             />
 

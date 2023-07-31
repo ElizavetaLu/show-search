@@ -7,7 +7,7 @@ const EpisodeCard = ({ name, image, season }) => {
         <div className="episode-card">
             <img
                 className="episode-image"
-                src={image?.medium ? image.medium : '/images/no-image.png'}
+                src={image?.medium ? image.medium : '/show-search/build//images/no-image.png'}
                 alt=""
             />
 

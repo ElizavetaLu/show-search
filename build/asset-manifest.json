@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/show-search/build/static/css/main.424352fd.css",
-    "main.js": "/show-search/build/static/js/main.b5f4f68c.js",
-    "static/js/787.04217ef2.chunk.js": "/show-search/build/static/js/787.04217ef2.chunk.js",
+    "main.css": "/show-search/build/static/css/main.b807df82.css",
+    "main.js": "/show-search/build/static/js/main.79e16873.js",
+    "static/media/modern-futuristic-sci-fi-background.jpg": "/show-search/build/static/media/modern-futuristic-sci-fi-background.39865171648c9b8419ef.jpg",
     "index.html": "/show-search/build/index.html",
-    "main.424352fd.css.map": "/show-search/build/static/css/main.424352fd.css.map",
-    "main.b5f4f68c.js.map": "/show-search/build/static/js/main.b5f4f68c.js.map",
-    "787.04217ef2.chunk.js.map": "/show-search/build/static/js/787.04217ef2.chunk.js.map"
+    "main.b807df82.css.map": "/show-search/build/static/css/main.b807df82.css.map",
+    "main.79e16873.js.map": "/show-search/build/static/js/main.79e16873.js.map"
   },
   "entrypoints": [
-    "static/css/main.424352fd.css",
-    "static/js/main.b5f4f68c.js"
+    "static/css/main.b807df82.css",
+    "static/js/main.79e16873.js"
   ]
 }

@@ -9,7 +9,7 @@ const Person = ({ name, image }) => {
                 style={{
                     backgroundImage: `url(${image?.medium
                         ? image.medium
-                        : '/images/no-image.png'
+                        : '/show-search/build//images/no-image.png'
                         })`
                 }}
             >

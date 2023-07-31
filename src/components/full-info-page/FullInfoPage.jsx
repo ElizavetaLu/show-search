@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import CaracterCard from "../allCards/caracter-card/CaracterCard";
 import EpisodeCard from "../allCards/episode-card/EpisodeCard";
+import CardsSection from "../cards-section-row/CardsSection";
 import SeasonCard from "../allCards/saeason-card/SeasonCard";
 import Person from "../allCards/person-row/Person";
-import parse from "html-react-parser"
-import "./fullInfoPage.scss"
 import Dummy from "../dummy-text/Dummy";
-import CardsSection from "../cards-section-row/CardsSection";
+import parse from "html-react-parser";
+import "./fullInfoPage.scss";
 
 
 
@@ -38,7 +38,7 @@ const FullInfoPage = () => {
 
                     <div className="show-data">
                         <div className="poster-container">
-                            <div className="poster" style={{ backgroundImage: `url(${image?.original || '/images/no-image.png'})` }}></div>
+                            <div className="poster" style={{ backgroundImage: `url(${image?.original || '/show-search/build//images/no-image.png'})` }}></div>
 
                             <div className="buttons">
                                 <button className="poster-btn">Add to Favorites</button>
