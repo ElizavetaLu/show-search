@@ -60,7 +60,7 @@ const Main = () => {
                         </datalist>
 
                         <button className="search-btn" type="submit">
-                            <img className="search-icon" src="/images/icons8-search-64.png" alt="" />
+                            <img className="search-icon" src="/show-search/build//images/icons8-search-64.png" alt="" />
                         </button>
                     </form>
                 </div>
